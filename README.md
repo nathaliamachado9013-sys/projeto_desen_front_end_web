@@ -1,46 +1,74 @@
-# 🌿 Flor da Pele — Plataforma Web para ONG  
-### 💻 Projeto da disciplina *Desenvolvimento Front-End*
+# 🌸 Flor da Pele — ONG de Nutrição e Estética Natural
+
+**🔗 Acesse o site:** [https://nathaliamachado9013-sys.github.io/projeto_desen_front_end_web/](https://nathaliamachado9013-sys.github.io/projeto_desen_front_end_web/)
 
 ---
 
-## 📖 Sobre o Projeto
+## 💫 Sobre o projeto
 
-**Flor da Pele** é uma plataforma web fictícia desenvolvida como parte do curso de *Análise e Desenvolvimento de Sistemas*.  
-A proposta é criar um sistema completo para uma **ONG voltada à nutrição, estética natural e bem-estar**, aplicando os fundamentos de **HTML5, CSS3 e JavaScript** de forma integrada, semântica e acessível.
+**Flor da Pele** é uma ONG fictícia criada para o projeto da disciplina **Desenvolvimento Front-End**  
+do curso de **Análise e Desenvolvimento de Sistemas**.  
+O site foi desenvolvido com foco em **HTML5, CSS3, JavaScript, acessibilidade e design responsivo**,  
+simulando um ambiente de desenvolvimento profissional.
 
-O objetivo é oferecer uma **presença digital funcional, responsiva e inspiradora**, demonstrando como a tecnologia pode apoiar causas sociais e de saúde holística.
-
----
-
-## 🎯 Objetivos do Projeto
-
-- Aplicar os fundamentos de **HTML5** em estruturas semânticas e acessíveis.  
-- Implementar **CSS3 avançado** para layout responsivo e design consistente.  
-- Criar interatividade e gráficos dinâmicos com **JavaScript puro**.  
-- Organizar arquivos e pastas de acordo com boas práticas de desenvolvimento.  
-- Validar o código HTML com o **W3C Validator**.  
-- Documentar o projeto de forma profissional no **GitHub**.
+A proposta une **nutrição e estética natural**, promovendo o **autocuidado, o bem-estar e a sustentabilidade**.
 
 ---
 
-## 🧩 Estrutura do Site
-
-O projeto é composto por **8 páginas obrigatórias**:
+## 🧩 Estrutura das Páginas
 
 | Página | Descrição |
-|:--|:--|
-| `index.html` | Página inicial — apresenta a ONG, missão, visão e valores. |
-| `sobre.html` | História, equipe e vídeo institucional. |
-| `projetos.html` | Lista de projetos sociais e galeria de imagens. |
-| `voluntariado.html` | Cadastro e inscrição de voluntários. |
-| `doacoes.html` | Campanhas e formas de doação com gráfico de recursos. |
-| `transparencia.html` | Relatórios e gráficos de desempenho. |
-| `contato.html` | Informações e formulário institucional de contato. |
-| `blog.html` | Artigos e notícias sobre nutrição e autocuidado natural. |
+|--------|------------|
+| `index.html` | Página inicial com **hero**, missão, visão, valores e newsletter |
+| `sobre.html` | História da ONG, equipe e **vídeo institucional** |
+| `projetos.html` | Lista de projetos sociais e **galeria responsiva com 20 imagens** |
+| `voluntariado.html` | Formulários de **cadastro de voluntário** e **inscrição em projetos** |
+| `doacoes.html` | Campanhas de arrecadação com **barras de progresso acessíveis** e gráfico de pizza |
+| `transparencia.html` | **Relatórios e gráficos** (pizza, linha e barras) com `<canvas>` e JS |
+| `contato.html` | Formulário institucional com **validação HTML5** e mapa ilustrativo |
+| `blog.html` | Estrutura de blog com **cards de artigos e imagens** |
 
 ---
 
-## 📂 Estrutura de Pastas
+## 🧠 Recursos Técnicos
+
+### 🌿 HTML5
+- Estrutura semântica e hierarquia de títulos (`<h1>`–`<h6>`)
+- Elementos de mídia (`<video>`, `<audio>`, `<picture>`)
+- Formulários com `fieldset`, `legend`, `pattern` e validação nativa
+
+### 🎨 CSS3
+- Layout **responsivo mobile-first**
+- Galeria e seções usando **Flexbox** e **Grid**
+- Paleta de cores em tons **verdes e terrosos**, transmitindo natureza e calma
+- Tipografia decorativa com fonte *Dancing Script*
+
+### ⚙️ JavaScript
+- Gráficos simples com `<canvas>` (pizza, linha e barras)
+- Scripts de validação e acessibilidade nos formulários
+
+### ♿ Acessibilidade
+- Conformidade com **WCAG 2.1 nível AA**
+- Navegação por teclado
+- Uso de `aria-label` e `aria-labelledby`
+- Contraste e fontes legíveis
+
+### 🔍 SEO e Desempenho
+- Estrutura semântica otimizada
+- `meta description` em todas as páginas
+- `loading="lazy"` em imagens para otimizar o carregamento
+
+---
+
+## 📊 Validação
+
+✅ **HTML5 validado** via [W3C Validator](https://validator.w3.org/)  
+✅ **Acessibilidade e semântica revisadas**  
+✅ **Imagens otimizadas e responsivas**
+
+---
+
+## 📁 Estrutura de Pastas
 
 projeto_desen_front_end_web/
 │
@@ -61,75 +89,22 @@ projeto_desen_front_end_web/
 │ └── form-validacao.js
 │
 ├── imagens/
-│ ├── jpg (todas as imagens)
+│ ├── hero.jpg
+│ ├── galeria/...
+│ └── equipe/...
 │
-│
-├── video/
-│ └── flor-da-pele2.mp4
-│
-└── docs/
-├── relatorio-2024.pdf
-└── relatorio-2025.pdf
-│
-└── README.md
+└── video/
+├── flor-da-pele.mp4
 
-## 🧠 Recursos e Funcionalidades
 
-- Estrutura **HTML5 semântica** e validada pelo W3C.  
-- Layout **mobile-first e responsivo** (Flexbox e Grid).  
-- **Formulários completos** com validação, máscaras e consentimento LGPD.  
-- **Galeria de imagens** responsiva com *lazy loading*.  
-- **Três gráficos Canvas** para indicadores sociais e financeiros.  
-- **Acessibilidade:**  
-  - Navegação por teclado  
-  - Aria labels  
-  - Contraste adequado  
-- **SEO básico:** meta tags e estrutura semântica otimizadas.
+
+## 👩‍💻 Desenvolvido por
+
+**✨ Nathalia Machado**  
+Nutricionista | Estudante de ADS | Criadora da ONG fictícia *Flor da Pele*  
+💚 Apaixonada por tecnologia, arte e o poder transformador do autocuidado.  
 
 ---
 
-## 📊 Tecnologias Utilizadas
-
-| Categoria | Ferramentas |
-|------------|-------------|
-| Estrutura | HTML5 semântico |
-| Estilo | CSS3 (Grid, Flexbox, Media Queries) |
-| Interatividade | JavaScript puro (DOM + Canvas) |
-| Validação | W3C HTML Validator |
-| Controle de Versão | Git e GitHub |
-
----
-
-## 🌼 Inspiração e Conceito
-
-> “Beleza e saúde que nascem de dentro.”  
-
-A **Flor da Pele** simboliza o florescimento interior — a união entre **nutrição, autocuidado e sustentabilidade**.  
-O projeto convida à reflexão sobre como a tecnologia pode amplificar ações sociais e transformar realidades.
-
----
-
-## 👩‍💻 Autoria
-
-**Projeto desenvolvido por:**  
-**Nathalia Machado** — Nutricionista & Estudante de Análise e Desenvolvimento de Sistemas  
-📍 *Vieira do Minho, Portugal*  
-📧 contato@flordapele.org *(e-mail fictício para o projeto)*
-
----
-
-## 🧾 Licença
-
-Este projeto foi criado para fins **educacionais** e não possui fins comerciais.  
-As imagens e textos utilizados são ilustrativos, com fontes livres de direitos autorais (Pixabay, Pexels, Unsplash).
-
----
-
-## 🚀 Demonstração
-
-🔗 [Acesse o projeto completo no GitHub Pages](#)  
-*(adicione o link após a publicação no GitHub Pages)*
-
----
-
-✨ **Flor da Pele** — “Cuidar de si é o primeiro passo para transformar o mundo.” 🌸
+### 🌐 Projeto hospedado em:
+[GitHub Pages – Flor da Pele](https://nathaliamachado9013-sys.github.io/projeto_desen_front_end_web/)
