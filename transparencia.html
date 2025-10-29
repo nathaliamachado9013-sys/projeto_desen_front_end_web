@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1" >
+  <title>Flor da Pele — Transparência</title>
+  <meta name="description" content="Relatórios, dados e gráficos de impacto da Flor da Pele." >
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav aria-label="Navegação principal">
+      <a href="/index.html">Início</a>
+      <a href="/sobre.html">Sobre</a>
+      <a href="/projetos.html">Projetos</a>
+      <a href="/voluntariado.html">Voluntariado</a>
+      <a href="/doacoes.html">Doações</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <main class="container transparencia">
+  <header class="section-header">
+    <h1>Transparência</h1>
+    <p>Prestação de contas, relatórios e indicadores.</p>
+  </header>
+
+  <!-- RELATÓRIOS -->
+  <section aria-labelledby="relatorios" class="relatorios">
+    <h2 id="relatorios">Relatórios</h2>
+    <ul>
+      <!-- use caminhos relativos (sem / no começo) -->
+      <li>
+        <a href="docs/relatorio-2024.pdf" type="application/pdf" target="_blank" rel="noopener">
+          Relatório anual 2024 (PDF)
+        </a>
+      </li>
+      <li>
+        <a href="docs/relatorio-2025.pdf" type="application/pdf" target="_blank" rel="noopener">
+          Relatório parcial 2025 (PDF)
+        </a>
+      </li>
+    </ul>
+    <p class="nota">*Arquivos ilustrativos para fins acadêmicos.</p>
+  </section>
+
+  <!-- GRÁFICOS (OBRIGATÓRIO: 3 canvas) -->
+<section aria-labelledby="graficos" class="graficos">
+  <h2 id="graficos">Gráficos</h2>
+
+  <div class="charts-grid">
+    <!-- 1) Pizza -->
+    <figure class="chart-card">
+      <figcaption id="desc-recursos">Distribuição de recursos por projeto</figcaption>
+      <canvas id="grafico-recursos" width="640" height="420" aria-labelledby="desc-recursos"></canvas>
+    </figure>
+
+    <!-- 2) Linha -->
+    <figure class="chart-card">
+      <figcaption id="desc-voluntarios">Evolução de voluntários (2019–2025)</figcaption>
+      <canvas id="grafico-voluntarios" width="640" height="420" aria-labelledby="desc-voluntarios"></canvas>
+    </figure>
+
+    <!-- 3) Barras -->
+    <figure class="chart-card">
+      <figcaption id="desc-regioes">Impacto por região</figcaption>
+      <canvas id="grafico-regioes" width="640" height="420" aria-labelledby="desc-regioes"></canvas>
+    </figure>
+  </div>
+
+  <noscript>
+    <p class="nota">Observação: os gráficos são desenhados via JavaScript.</p>
+  </noscript>
+</section>
+
+    <noscript>
+      <p class="nota">Observação: os gráficos serão renderizados quando o JavaScript estiver ativo.</p>
+    </noscript>
+</main>
+
+  <footer>
+    <small>© 2025 Flor da Pele</small>
+  </footer>
+
+  <!-- JS mínimo para desenhar os gráficos (dados fictícios) -->
+  <script>
+    // Utilitários simples
+    const $ = (id) => document.getElementById(id).getContext('2d');
+
+    // 1) Pizza — distribuição de recursos
+    (function pie() {
+      const ctx = $('#grafico-recursos');
+      if (!ctx) return;
+      const data = [40, 25, 20, 15]; // Oficinas, Hortas, Cursos, Campanhas
+      const total = data.reduce((a,b)=>a+b,0);
+      let start = -Math.PI/2;
+      data.forEach((v, i) => {
+        const angle = (v/total) * Math.PI * 2;
+        ctx.beginPath();
+        ctx.moveTo(240,160);
+        ctx.arc(240,160,120,start,start+angle);
+        ctx.closePath();
+        ctx.fillStyle = `hsl(${i*80}, 70%, 55%)`;
+        ctx.fill();
+        start += angle;
+      });
+    })();
+
+    // 2) Linha — evolução de voluntários
+    (function line() {
+      const ctx = $('#grafico-voluntarios');
+      if (!ctx) return;
+      const pts = [18, 30, 45, 70, 95, 120, 150];
+      const w = ctx.canvas.width, h = ctx.canvas.height;
+      const pad = 40;
+      const max = Math.max(...pts);
+      ctx.clearRect(0,0,w,h);
+      ctx.strokeStyle = '#333';
+      ctx.lineWidth = 1;
+      // Eixos
+      ctx.beginPath();
+      ctx.moveTo(pad, pad);
+      ctx.lineTo(pad, h-pad);
+      ctx.lineTo(w-pad, h-pad);
+      ctx.stroke();
+      // Linha
+      ctx.beginPath();
+      pts.forEach((v, i) => {
+        const x = pad + (i*(w-2*pad)/(pts.length-1));
+        const y = h - pad - (v/max)*(h-2*pad);
+        if (i === 0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+      });
+      ctx.strokeStyle = '#0a7';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    })();
+
+    // 3) Barras — impacto por região
+    (function bars() {
+      const ctx = $('#grafico-regioes');
+      if (!ctx) return;
+      const labels = ['Norte','Nordeste','Sudeste','Sul','Centro-Oeste'];
+      const vals = [120, 280, 410, 190, 150];
+      const w = ctx.canvas.width, h = ctx.canvas.height;
+      const pad = 40, bw = 50, gap = 20;
+      const max = Math.max(...vals);
+      ctx.clearRect(0,0,w,h);
+      // Eixo base
+      ctx.strokeStyle = '#333';
+      ctx.beginPath();
+      ctx.moveTo(pad, h-pad);
+      ctx.lineTo(w-pad, h-pad);
+      ctx.stroke();
+      // Barras
+      vals.forEach((v, i) => {
+        const x = pad + i*(bw+gap);
+        const bh = (v/max)*(h-2*pad);
+        ctx.fillStyle = `hsl(${i*60}, 70%, 55%)`;
+        ctx.fillRect(x, h-pad-bh, bw, bh);
+      });
+    })();
+  </script>
+  <script src="js/graficos.js"></script>
+</body>
+</html>

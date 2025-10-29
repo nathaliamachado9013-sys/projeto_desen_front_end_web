@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1" >
+  <title>Flor da Pele — Contato</title>
+  <meta name="description" content="Fale com a equipe da Flor da Pele." >
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav aria-label="Navegação principal">
+      <a href="/index.html">Início</a>
+      <a href="/sobre.html">Sobre</a>
+      <a href="/projetos.html">Projetos</a>
+      <a href="/voluntariado.html">Voluntariado</a>
+      <a href="/doacoes.html">Doações</a>
+      <a href="/transparencia.html">Transparência</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+  </header>
+
+  <main class="container contact">
+  <header class="section-header">
+    <h1>Contato</h1>
+  </header>
+
+  <div class="contact-grid">
+    <!-- COLUNA ESQUERDA: INFORMAÇÕES -->
+    <section aria-labelledby="info" class="contact-info">
+      <h2 id="info">Informações</h2>
+      <address>
+        <p>Rua Fictícia, 123 — São Paulo — SP</p>
+        <p>Email: <a href="mailto:contato@flordapele.org">contato@flordapele.org</a></p>
+        <p>Telefone: <a href="tel:+5511999999999">(11) 99999-9999</a></p>
+      </address>
+
+      
+      <img src="imagens/provar-localizacao-google-maps-3.png"
+           alt="Mapa estático da localização (ilustrativo)"
+           loading="lazy" width="800" height="400" class="mapa" >
+    </section>
+
+    <!-- COLUNA DIREITA: FORMULÁRIO -->
+    <section aria-labelledby="fale-conosco" class="contact-form form-section">
+      <h2 id="fale-conosco">Fale conosco</h2>
+      <form action="#" method="post" enctype="multipart/form-data" novalidate>
+        <fieldset>
+          <legend>Assunto</legend>
+          <label for="c-assunto">Escolha o assunto</label>
+          <select id="c-assunto" name="assunto" required>
+            <option value="">Selecione</option>
+            <option>Parcerias</option>
+            <option>Imprensa</option>
+            <option>Projetos</option>
+            <option>Outros</option>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend>Seus dados</legend>
+          <div class="grid-2">
+            <div>
+              <label for="c-nome">Nome</label>
+              <input id="c-nome" name="nome" type="text" required >
+            </div>
+            <div>
+              <label for="c-email">E-mail</label>
+              <input id="c-email" name="email" type="email" required >
+            </div>
+            <div>
+              <label for="c-tel">Telefone</label>
+              <input id="c-tel" name="telefone" type="tel" inputmode="tel"
+                     pattern="^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$" placeholder="(11) 99999-9999" >
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Mensagem</legend>
+          <label for="c-msg">Mensagem</label>
+          <textarea id="c-msg" name="mensagem" rows="5" required></textarea>
+        </fieldset>
+
+        <fieldset>
+          <legend>Anexos</legend>
+          <input id="c-file" name="anexo" type="file" >
+        </fieldset>
+
+        <fieldset>
+          <legend>Consentimento LGPD</legend>
+          <label>
+            <input type="checkbox" name="lgpd" required >
+            Autorizo o uso dos meus dados para retorno deste contato.
+          </label>
+        </fieldset>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </div>
+</main>
+
+  <footer>
+    <small>© 2025 Flor da Pele</small>
+  </footer>
+  <script src="js/form-validacao.js"></script>
+</body>
+</html>

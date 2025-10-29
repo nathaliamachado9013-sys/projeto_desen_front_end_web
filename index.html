@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flor da Pele - Início</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav aria-label="Navegação principal">
+      <ul>
+        <li><a href="index.html" aria-current="page">Início</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+  
+    <section id="hero" aria-labelledby="titulo-hero">
+      <h1 id="titulo-hero">Flor da Pele</h1>
+      <p>Beleza e saúde que nascem de dentro.  
+      Nossa ONG promove autoestima e bem-estar por meio da nutrição e estética natural.</p>
+  <picture>
+    <!-- imagem menor para celulares -->
+    <source media="(max-width: 768px)" srcset="imagens/beginning-of-spring-4802393_1280.jpg">
+    <!-- imagem maior para desktops -->
+    <img src="imagens/beginning-of-spring-4802393_1280.jpg"
+         alt="Mulher sorrindo em meio a flores e natureza, representando bem-estar e autocuidado"
+         loading="eager">
+    </picture>
+    </section>
+
+    <section id="sobre">
+  <h2>Quem somos</h2>
+
+  <p>
+    Somos movidas pela crença de que o cuidado com o corpo é também um cuidado com a alma.  
+    Desde 2017, a <strong>Flor da Pele</strong> transforma vidas por meio de projetos sociais que unem 
+    <strong>nutrição, estética natural e sustentabilidade</strong>.
+  </p>
+
+  <p>
+    Acreditamos que o autocuidado é um ato de amor e empoderamento, capaz de resgatar a autoestima, 
+    fortalecer laços e inspirar escolhas mais conscientes.  
+    Em cada oficina, encontro e conversa, nascem novas formas de olhar para si — com mais respeito, 
+    equilíbrio e beleza que vem de dentro.
+  </p>
+
+  <blockquote>
+    <p>“A beleza que floresce de dentro transforma tudo ao redor.”</p>
+  </blockquote>
+</section>
+
+    <section id="mvv" aria-labelledby="titulo-mvv">
+  <h2 id="titulo-mvv">Missão, Visão e Valores</h2>
+
+  <div class="mvv-container">
+    <article class="mvv-card">
+      <h3>🌿 Missão</h3>
+      <p>Promover saúde, autoestima e bem-estar por meio de práticas naturais acessíveis, 
+         unindo educação alimentar e cuidados com a pele para transformar vidas.</p>
+    </article>
+
+    <article class="mvv-card">
+      <h3>🌸 Visão</h3>
+      <p>Ser referência nacional em projetos que integram nutrição, estética natural e sustentabilidade, 
+         inspirando uma nova relação com o corpo e com a natureza.</p>
+    </article>
+
+    <article class="mvv-card valores">
+      <h3>✨ Valores</h3>
+      <ul>
+        <li>🌱 Respeito ao corpo e à natureza</li>
+        <li>💧 Sustentabilidade e consumo consciente</li>
+        <li>💖 Inclusão e empoderamento de mulheres</li>
+        <li>📚 Educação transformadora e acessível</li>
+        <li>🌟 Transparência e ética em todas as ações</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+    <section id="newsletter" aria-labelledby="titulo-news">
+    <h2 id="titulo-news">Receba nossas novidades</h2>
+    <p>Assine nossa newsletter e receba dicas de nutrição, autocuidado natural e atualizações dos nossos projetos.</p>
+
+    <form action="#" method="post" novalidate>
+      <label for="news-nome">Nome</label>
+      <input type="text" id="news-nome" name="nome" placeholder="Seu nome" required>
+
+      <label for="news-email">E-mail</label>
+      <input type="email" id="news-email" name="email" placeholder="seuemail@exemplo.com" required>
+
+      <fieldset>
+        <legend>Prefiro receber conteúdos sobre:</legend>
+        <label>
+          <input type="checkbox" name="interesse" value="nutricao"> Nutrição
+        </label>
+        <label>
+          <input type="checkbox" name="interesse" value="estetica"> Estética natural
+        </label>
+        <label>
+          <input type="checkbox" name="interesse" value="eventos"> Oficinas e eventos
+        </label>
+      </fieldset>
+
+      <button type="submit">Assinar</button>
+    </form>
+  </section>
+
+  </main>
+
+  <footer>
+    <p>&copy;<small>2025 Flor da Pele. Todos os direitos reservados.</small></p>
+  </footer>
+</body>
+</html>

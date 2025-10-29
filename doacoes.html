@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1" >
+  <title>Flor da Pele — Doações</title>
+  <meta name="description" content="Ajude a Flor da Pele: conheça as campanhas e formas de doação." >
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav aria-label="Navegação principal">
+      <a href="/index.html">Início</a>
+      <a href="/sobre.html">Sobre</a>
+      <a href="/projetos.html">Projetos</a>
+      <a href="/voluntariado.html">Voluntariado</a>
+      <a href="/transparencia.html">Transparência</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+  <header>
+    <h1>Doações</h1>
+    <p>Suas doações mantêm nossos projetos vivos. Obrigada(o) por apoiar!</p>
+  </header>
+
+  <section aria-labelledby="campanhas">
+    <h2 id="campanhas">Campanhas em andamento</h2>
+
+    <!-- 1) Campanha Oficinas -->
+    <article>
+      <h3 id="campanha-oficinas">Oficinas 2025</h3>
+      <p>Meta: R$ 50.000 — Progresso: 60%</p>
+      <div class="progress" aria-labelledby="campanha-oficinas">
+        <div class="progress-bar"
+             role="progressbar"
+             aria-valuenow="60"
+             aria-valuemin="0"
+             aria-valuemax="100"
+             style="--p:60%">
+        </div>
+      </div>
+    </article>
+
+    <!-- 2) Campanha Horta -->
+    <article>
+      <h3 id="campanha-horta">Horta & Saúde</h3>
+      <p>Meta: R$ 30.000 — Progresso: 35%</p>
+      <div class="progress" aria-labelledby="campanha-horta">
+        <div class="progress-bar"
+             role="progressbar"
+             aria-valuenow="35"
+             aria-valuemin="0"
+             aria-valuemax="100"
+             style="--p:35%">
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section aria-labelledby="formas">
+    <h2 id="formas">Formas de doar</h2>
+    <ul>
+      <li>PIX: <strong>pix@flordapele.org</strong></li>
+      <li>Transferência bancária (fictícia)</li>
+      <li>Doação recorrente (mensal ou trimestral)</li>
+    </ul>
+  </section>
+
+  <!-- Gráfico -->
+  <section aria-labelledby="grafico-doacoes" class="grafico">
+    <h2 id="grafico-doacoes">Distribuição de recursos por projeto</h2>
+    <figure class="canvas-wrap">
+      <figcaption id="desc-doacoes">Distribuição de recursos por projeto (exemplo).</figcaption>
+      <canvas id="graficoRecursos"
+              width="640"
+              height="420"
+              aria-labelledby="desc-doacoes">
+      </canvas>
+    </figure>
+  </section>
+</main>
+  <footer>
+    <small>© 2025 Flor da Pele</small>
+  </footer>
+  <script src="js/graficos.js"></script>
+</body>
+</html>
