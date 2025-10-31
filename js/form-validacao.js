@@ -152,3 +152,38 @@
 
   document.addEventListener('DOMContentLoaded', init);
 })();
+
+const mask = (el, fn) => el && el.addEventListener('input', e => { e.target.value = fn(e.target.value) })
+
+const onlyDigits = v => v.replace(/\D/g, '')
+
+const maskCPF = v => {
+  v = onlyDigits(v).slice(0, 11)
+  return v
+    .replace(/(\d{3})(\d)/, '$1.$2')
+    .replace(/(\d{3})(\d)/, '$1.$2')
+    .replace(/(\d{3})(\d{1,2})$/, '$1-$2')
+}
+
+const maskCEP = v => {
+  v = onlyDigits(v).slice(0, 8)
+  return v.replace(/(\d{5})(\d{1,3})$/, '$1-$2')
+}
+
+const maskTel = v => {
+  v = onlyDigits(v).slice(0, 11)
+  if (v.length <= 10) {
+    return v
+      .replace(/(\d{2})(\d)/, '($1) $2')
+      .replace(/(\d{4})(\d{1,4})$/, '$1-$2')
+  }
+  return v
+    .replace(/(\d{2})(\d)/, '($1) $2')
+    .replace(/(\d{5})(\d{1,4})$/, '$1-$2')
+}
+
+// aplica nas páginas
+mask(document.querySelector('#v-cpf'), maskCPF)
+mask(document.querySelector('#v-cep'), maskCEP)
+mask(document.querySelector('#v-tel'), maskTel)
+mask(document.querySelector('#c-tel'), maskTel)

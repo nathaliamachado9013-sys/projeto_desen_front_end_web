@@ -378,7 +378,7 @@ section[aria-labelledby="galeria"] > h2::after{
   text-align: center;
   color: #2b2b2b;
   padding: 3rem 1rem;
-  background-image: url("imagens/flower-8429956_1280.jpg"); /* imagem */
+  background-image: url("/imagens/flower-8429956_1280.jpg"); /* imagem */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -420,6 +420,55 @@ section[aria-labelledby="galeria"] > h2::after{
   font-size: 1.1rem;
   color: #444;
 }
+
+/* === Música página voluntáriado ==== */
+.secao-musica {
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.secao-musica h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.4rem;
+  color: #2e6f54;
+  margin-bottom: 0.5rem;
+}
+
+.secao-musica figure {
+  background: linear-gradient(145deg, rgba(232, 245, 233, 0.9), rgba(255, 255, 255, 0.85));
+  border: 2px solid #c8e6ca;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  max-width: 600px;
+  margin: 1.5rem auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.secao-musica figcaption {
+  font-size: 1.1rem;
+  color: #3a4a3f;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.secao-musica audio {
+  width: 85%;
+  max-width: 480px;
+  margin: 1rem auto;
+  display: block;
+  border-radius: 8px;
+  outline: none;
+}
+
+.secao-musica .transcricao {
+  font-size: 0.95rem;
+  color: #555;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
 
 /* ===== Seção Como Ajudar ===== */
 .info-strip {
