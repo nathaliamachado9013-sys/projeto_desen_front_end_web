@@ -378,7 +378,7 @@ section[aria-labelledby="galeria"] > h2::after{
   text-align: center;
   color: #2b2b2b;
   padding: 3rem 1rem;
-  background-image: url("/imagens/flower.jpg"); /* imagem */
+  background-image: url("imagens/flower.jpg"); /* imagem */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

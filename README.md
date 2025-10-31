@@ -1,6 +1,9 @@
 # 🌸 Flor da Pele — ONG de Nutrição e Estética Natural
 
-**🔗 Acesse o site:** [https://nathaliamachado9013-sys.github.io/projeto_desen_front_end_web/](https://nathaliamachado9013-sys.github.io/projeto_desen_front_end_web/)
+**🔗 Acesse meu Github:**
+https://github.com/nathaliamachado9013-sys
+
+**🔗 Acesse o site:** [https://nathaliamachado9013-sys.github.io/projeto_desen_front_end_web/]
 
 ---
 
@@ -22,7 +25,7 @@ A proposta une **nutrição e estética natural**, promovendo o **autocuidado, o
 | `index.html` | Página inicial com **hero**, missão, visão, valores e newsletter |
 | `sobre.html` | História da ONG, equipe e **vídeo institucional** |
 | `projetos.html` | Lista de projetos sociais e **galeria responsiva com 20 imagens** |
-| `voluntariado.html` | Formulários de **cadastro de voluntário** e **inscrição em projetos** |
+| `voluntariado.html` | Formulários de **cadastro de voluntário** , **inscrição em projetos**, **audio mp3** |
 | `doacoes.html` | Campanhas de arrecadação com **barras de progresso acessíveis** e gráfico de pizza |
 | `transparencia.html` | **Relatórios e gráficos** (pizza, linha e barras) com `<canvas>` e JS |
 | `contato.html` | Formulário institucional com **validação HTML5** e mapa ilustrativo |
@@ -95,7 +98,10 @@ projeto_desen_front_end_web/
 │
 └── video/
 ├── flor-da-pele.mp4
-
+│
+└── audio/
+├── Golden.mp3
+├─ docs/ (relatórios W3C)
 
 
 ## 👩‍💻 Desenvolvido por
