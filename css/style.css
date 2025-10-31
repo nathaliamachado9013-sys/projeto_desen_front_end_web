@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
 
-/* --- HERO: controla o tamanho e deixa texto legível --- */
+/* --- HERO: controlar o tamanho e deixar o texto legível --- */
 #hero {
   position: relative;
   overflow: hidden;
@@ -13,7 +13,7 @@
   display: block;
   width: 100%;
   height: clamp(320px, 70vh, 680px); /* altura mínima, proporcional e máxima */
-  object-fit: cover;                 /* preenche sem distorcer */
+  object-fit: cover;                 /* preencher sem distorcer */
 }
 
 /* camada escura para contraste do texto */
@@ -25,7 +25,7 @@
   z-index: 0;
 }
 
-/* posiciona o texto por cima da imagem */
+/* posicionar o texto por cima da imagem */
 #hero h1,
 #hero p {
   position: absolute;
@@ -211,7 +211,7 @@ footer { border-top: 1px solid #eee; text-align: center; color: #666; padding: 1
   background: #f6f7f6;
   border-radius: 12px;
   padding: .75rem;
-  /* mantém todos os cards com a mesma proporção visual */
+  /* manter todos os cards com a mesma proporção visual */
   aspect-ratio: 4 / 3;
   display: flex;
   flex-direction: column;
@@ -339,7 +339,7 @@ section[aria-labelledby="galeria"] > h2::after{
   box-shadow: 0 1px 6px rgba(0,0,0,.04);
   display: flex;
   flex-direction: column;
-  aspect-ratio: 4 / 3; /* mantém proporção consistente nos cards */
+  aspect-ratio: 4 / 3; /* manter proporção consistente nos cards */
 }
 .grid-galeria img{
   width: 100%;
@@ -378,7 +378,7 @@ section[aria-labelledby="galeria"] > h2::after{
   text-align: center;
   color: #2b2b2b;
   padding: 3rem 1rem;
-  background-image: url("/imagens/flower-8429956_1280.jpg"); /* troque pelo nome da sua imagem */
+  background-image: url("imagens/flower-8429956_1280.jpg"); /* imagem */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
