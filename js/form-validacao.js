@@ -1,189 +1,79 @@
-/ js/form-validacao.js
-// Validação acessível + máscaras leves (CPF, CEP, telefone) para Voluntariado e Contato
+import { maskCPF, maskCEP, maskTel, isValidCPF, showFieldError, clearFieldError } from './utils.js';
+import { saveDraft, loadDraft, clearDraft } from './form-storage.js';
 
-(function(){
-  const SELECTORS = [
-    'form[action="#"]',              // seus formulários atuais
-    'form[data-validate="on"]'       // opcional: ativa em futuros forms marcados
-  ].join(',');
+// aplica máscaras
+function bindMasks(root=document) {
+  const cpf = root.querySelector('#v-cpf');
+  const cep = root.querySelector('#v-cep');
+  const tel1 = root.querySelector('#v-tel');
+  const tel2 = root.querySelector('#c-tel');
 
-  // ===== helpers =====
-  const byId = (id) => document.getElementById(id);
-  const createMsg = (text) => {
-    const m = document.createElement('div');
-    m.className = 'error-msg';
-    m.setAttribute('role', 'alert');
-    m.setAttribute('aria-live', 'polite');
-    m.textContent = text;
-    return m;
-  };
-  const clearError = (input) => {
-    input.setAttribute('aria-invalid', 'false');
-    const wrap = input.closest('.field') || input.parentElement;
-    if (!wrap) return;
-    const old = wrap.querySelector('.error-msg');
-    if (old) old.remove();
-  };
-  const addError = (input, msg) => {
-    clearError(input);
-    input.setAttribute('aria-invalid', 'true');
-    const wrap = input.closest('.field') || input.parentElement;
-    if (!wrap) return;
-    wrap.appendChild(createMsg(msg));
-  };
-  const scrollToEl = (el) => {
-    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    el.focus({ preventScroll: true });
-  };
+  const on = (el, fn) => el && el.addEventListener('input', e => e.target.value = fn(e.target.value));
+  on(cpf, maskCPF);
+  on(cep, maskCEP);
+  on(tel1, maskTel);
+  on(tel2, maskTel);
+}
 
-  // ===== máscaras leves =====
-  const onlyDigits = (v) => v.replace(/\D+/g, '');
-  const maskCPF = (v) => {
-    v = onlyDigits(v).slice(0,11);
-    if (v.length > 9) return v.replace(/^(\d{3})(\d{3})(\d{3})(\d{0,2}).*$/, '$1.$2.$3-$4');
-    if (v.length > 6) return v.replace(/^(\d{3})(\d{3})(\d{0,3}).*$/, '$1.$2.$3');
-    if (v.length > 3) return v.replace(/^(\d{3})(\d{0,3}).*$/, '$1.$2');
-    return v;
-  };
-  const maskCEP = (v) => {
-    v = onlyDigits(v).slice(0,8);
-    if (v.length > 5) return v.replace(/^(\d{5})(\d{0,3}).*$/, '$1-$2');
-    return v;
-  };
-  const maskTelefone = (v) => {
-    v = onlyDigits(v).slice(0,11);
-    if (v.length > 10) return v.replace(/^(\d{2})(\d{5})(\d{0,4}).*$/, '($1) $2-$3');
-    if (v.length > 6)  return v.replace(/^(\d{2})(\d{0,5})(\d{0,4}).*$/, '($1) $2-$3');
-    if (v.length > 2)  return v.replace(/^(\d{2})(\d{0,5}).*$/, '($1) $2');
-    return v.replace(/^(\d{0,2}).*$/, '($1');
-  };
+// valida consistência dos formulários
+function bindValidation(root=document) {
+  [...root.querySelectorAll('form')].forEach(form => {
+    loadDraft(form);
+    form.addEventListener('input', () => saveDraft(form));
 
-  // ===== mensagens customizadas =====
-  const customMessage = (input) => {
-    if (input.validity.valueMissing) return 'Preencha este campo.';
-    if (input.validity.typeMismatch) {
-      if (input.type === 'email') return 'Informe um e-mail válido (ex.: nome@dominio.com).';
-      return 'Valor inválido.';
-    }
-    if (input.validity.patternMismatch) {
-      if (input.id === 'v-cpf') return 'CPF no formato 000.000.000-00.';
-      if (input.id === 'v-cep') return 'CEP no formato 00000-000.';
-      if (input.id === 'v-tel' || input.id === 'c-tel') return 'Telefone no formato (11) 99999-9999.';
-      return 'Formato inválido.';
-    }
-    if (input.validity.tooShort) return `Use pelo menos ${input.minLength} caracteres.`;
-    return 'Verifique este campo.';
-  };
+    form.addEventListener('submit', e => {
+      let ok = true;
+      [...form.elements].forEach(clearFieldError);
 
-  // ===== validação de um campo =====
-  const validateField = (input) => {
-    // ignora campos desabilitados/ocultos
-    if (input.disabled || input.type === 'hidden') return true;
+      const cpf = form.querySelector('#v-cpf');
+      if (cpf && cpf.value && !isValidCPF(cpf.value)) {
+        showFieldError(cpf, 'CPF inválido. Confira os dígitos.');
+        ok = false;
+      }
 
-    // aplica máscaras onde fizer sentido
-    if (input.id === 'v-cpf') input.value = maskCPF(input.value);
-    if (input.id === 'v-cep') input.value = maskCEP(input.value);
-    if (input.id === 'v-tel' || input.id === 'c-tel') input.value = maskTelefone(input.value);
-
-    // usa HTML5 para validar
-    if (input.checkValidity()) {
-      clearError(input);
-      return true;
-    } else {
-      addError(input, customMessage(input));
-      return false;
-    }
-  };
-
-  // ===== validação do formulário =====
-  const validateForm = (form) => {
-    const fields = form.querySelectorAll('input, select, textarea');
-    let firstInvalid = null;
-    let ok = true;
-    fields.forEach((f) => {
-      const good = validateField(f);
-      if (!good && !firstInvalid) firstInvalid = f;
-      ok = ok && good;
-    });
-    if (!ok && firstInvalid) scrollToEl(firstInvalid);
-    return ok;
-  };
-
-  // ===== inicialização =====
-  const init = () => {
-    const forms = document.querySelectorAll(SELECTORS);
-    if (!forms.length) return;
-
-    forms.forEach((form) => {
-      // wrap simples: adiciona .field ao redor de inputs se não existir (melhor para erro-msg)
-      form.querySelectorAll('label + input, label + select, label + textarea').forEach((ctrl) => {
-        const lbl = ctrl.previousElementSibling;
-        const container = document.createElement('div');
-        container.className = 'field';
-        if (lbl && lbl.tagName === 'LABEL') {
-          const parent = lbl.parentElement;
-          parent.insertBefore(container, lbl);
-          container.appendChild(lbl);
-          container.appendChild(ctrl);
+      const nasc = form.querySelector('#v-nasc');
+      if (nasc && nasc.value) {
+        const birth = new Date(nasc.value);
+        if (birth > new Date()) {
+          showFieldError(nasc, 'Data de nascimento não pode ser futura.');
+          ok = false;
         }
-      });
+      }
 
-      // eventos
-      form.addEventListener('submit', (e) => {
-        if (!validateForm(form)) e.preventDefault();
-      });
-      form.addEventListener('input', (e) => {
-        const t = e.target;
-        if (!(t instanceof HTMLInputElement || t instanceof HTMLTextAreaElement || t instanceof HTMLSelectElement)) return;
-        // valida enquanto digita (suave)
-        if (t.id === 'v-cpf' || t.id === 'v-cep' || t.id === 'v-tel' || t.id === 'c-tel') {
-          validateField(t);
-        } else if (t.required) {
-          // só limpa erro quando estiver válido
-          if (t.checkValidity()) clearError(t);
-        }
-      });
-      form.addEventListener('blur', (e) => {
-        const t = e.target;
-        if (t && t.tagName && (t.matches('input, select, textarea'))) validateField(t);
-      }, true);
+      const email = form.querySelector('#v-email, #c-email');
+      if (email && !email.checkValidity()) {
+        showFieldError(email, 'Informe um e-mail válido (ex: nome@dominio.com).');
+        ok = false;
+      }
+
+      const lgpd = form.querySelector('input[name="lgpd"]');
+      if (lgpd && !lgpd.checked) {
+        showFieldError(lgpd, 'É necessário autorizar o tratamento de dados (LGPD).');
+        ok = false;
+      }
+
+      const areas = form.querySelectorAll('input[name="area"]');
+      if (areas.length && ![...areas].some(a => a.checked)) {
+        showFieldError(areas[areas.length - 1], 'Selecione ao menos uma área de interesse.');
+        ok = false;
+      }
+
+      if (!ok) {
+        e.preventDefault();
+        const firstInvalid = form.querySelector('[aria-invalid="true"]') || form.querySelector(':invalid');
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
+
+      clearDraft();
+      alert('✅ Formulário enviado com sucesso! Obrigada por participar 🌿');
     });
-  };
-
-  document.addEventListener('DOMContentLoaded', init);
-})();
-
-const mask = (el, fn) => el && el.addEventListener('input', e => { e.target.value = fn(e.target.value) })
-
-const onlyDigits = v => v.replace(/\D/g, '')
-
-const maskCPF = v => {
-  v = onlyDigits(v).slice(0, 11)
-  return v
-    .replace(/(\d{3})(\d)/, '$1.$2')
-    .replace(/(\d{3})(\d)/, '$1.$2')
-    .replace(/(\d{3})(\d{1,2})$/, '$1-$2')
+  });
 }
 
-const maskCEP = v => {
-  v = onlyDigits(v).slice(0, 8)
-  return v.replace(/(\d{5})(\d{1,3})$/, '$1-$2')
+export function initForms(root=document) {
+  bindMasks(root);
+  bindValidation(root);
 }
 
-const maskTel = v => {
-  v = onlyDigits(v).slice(0, 11)
-  if (v.length <= 10) {
-    return v
-      .replace(/(\d{2})(\d)/, '($1) $2')
-      .replace(/(\d{4})(\d{1,4})$/, '$1-$2')
-  }
-  return v
-    .replace(/(\d{2})(\d)/, '($1) $2')
-    .replace(/(\d{5})(\d{1,4})$/, '$1-$2')
-}
-
-// aplica nas páginas
-mask(document.querySelector('#v-cpf'), maskCPF)
-mask(document.querySelector('#v-cep'), maskCEP)
-mask(document.querySelector('#v-tel'), maskTel)
-mask(document.querySelector('#c-tel'), maskTel)
+document.addEventListener('view:loaded', () => initForms(document));

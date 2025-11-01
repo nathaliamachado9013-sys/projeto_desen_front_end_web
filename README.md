@@ -73,23 +73,25 @@ A proposta une **nutrição e estética natural**, promovendo o **autocuidado, o
 
 ## 📁 Estrutura de Pastas
 
-projeto_desen_front_end_web/
-│
+/projeto_desen_front_end_web
 ├── index.html
-├── sobre.html
-├── projetos.html
-├── voluntariado.html
-├── doacoes.html
-├── transparencia.html
-├── contato.html
-├── blog.html
-│
-├── css/
-│ └── style.css
-│
+├── views/                 <-- parciais HTML para SPA (index)
+│   ├── index.html
+│   ├── sobre.html
+│   ├── projetos.html
+│   ├── voluntariado.html
+│   ├── doacoes.html
+│   ├── transparencia.html
+│   ├── contato.html
+│   └── blog.html
 ├── js/
-│ ├── graficos.js
-│ └── form-validacao.js
+│   ├── app.js            <-- roteador SPA + bootstrap
+│   ├── router.js         <-- hash router
+│   ├── templates.js      <-- sistema simples de templates
+│   ├── form-validacao.js          <-- validação + consistência + mensagens
+│   ├── storage.js        <-- salvar/recuperar rascunhos (localStorage)
+│   └── utils.js          <-- utilitários (CPF, CEP, máscara, etc.)
+└── css/style.css
 │
 ├── imagens/
 │ ├── hero.jpg

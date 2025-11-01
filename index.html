@@ -6,18 +6,25 @@
   <title>Flor da Pele - Início</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+  <a class="skip-link" href="#app">Pular para o conteúdo</a>
+
   <header>
     <nav aria-label="Navegação principal">
-      <ul>
-        <li><a href="index.html" aria-current="page">Início</a></li>
-        <li><a href="projetos.html">Projetos</a></li>
-        <li><a href="cadastro.html">Cadastro</a></li>
-      </ul>
+      <!-- HREF normal (fallback) + data-route p/ SPA -->
+      <a href="index.html"         data-route="/home"         aria-current="page">Início</a>
+      <a href="sobre.html"         data-route="/sobre">Sobre</a>
+      <a href="projetos.html"      data-route="/projetos">Projetos</a>
+      <a href="voluntariado.html"  data-route="/voluntariado">Voluntariado</a>
+      <a href="doacoes.html"       data-route="/doacoes">Doações</a>
+      <a href="transparencia.html" data-route="/transparencia">Transparência</a>
+      <a href="blog.html"          data-route="/blog">Blog</a>
+      <a href="contato.html"       data-route="/contato">Contato</a>
     </nav>
   </header>
 
-  <main>
+  <main id="app" role="main" tabindex="-1" aria-live="polite">
   
     <section id="hero" aria-labelledby="titulo-hero">
       <h1 id="titulo-hero">Flor da Pele</h1>
@@ -116,5 +123,7 @@
   <footer>
     <p>&copy;<small>2025 Flor da Pele. Todos os direitos reservados.</small></p>
   </footer>
+  <script src="js/spa-router.js" defer></script>
+<script src="js/spa-app.js" defer></script>
 </body>
 </html>
