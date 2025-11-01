@@ -1,18 +1,21 @@
 # 🌸 Flor da Pele — ONG de Nutrição e Estética Natural
 
-**🔗 Acesse meu Github:**
-https://github.com/nathaliamachado9013-sys
-
-**🔗 Acesse o site:** [https://nathaliamachado9013-sys.github.io/projeto_desen_front_end_web/]
+🔗 **GitHub:** [nathaliamachado9013-sys](https://github.com/nathaliamachado9013-sys)  
+🔗 **Site (GitHub Pages):** [https://nathaliamachado9013-sys.github.io/projeto_desen_front_end_web/](https://nathaliamachado9013-sys.github.io/projeto_desen_front_end_web/)
 
 ---
 
 ## 💫 Sobre o projeto
 
-**Flor da Pele** é uma ONG fictícia criada para o projeto da disciplina **Desenvolvimento Front-End**  
-do curso de **Análise e Desenvolvimento de Sistemas**.  
-O site foi desenvolvido com foco em **HTML5, CSS3, JavaScript, acessibilidade e design responsivo**,  
-simulando um ambiente de desenvolvimento profissional.
+**Flor da Pele** é uma ONG fictícia criada para o projeto da disciplina **Desenvolvimento Front-End Web**  
+do curso de **Análise e Desenvolvimento de Sistemas**.
+
+O projeto foi desenvolvido com foco em:
+- **HTML5, CSS3 e JavaScript moderno (modular)**  
+- **Acessibilidade (WCAG 2.1 AA)**  
+- **Design responsivo mobile-first**  
+- **Controle de versão com GitFlow e versionamento semântico**  
+- **Otimização de produção e SPA (Single Page Application)**
 
 A proposta une **nutrição e estética natural**, promovendo o **autocuidado, o bem-estar e a sustentabilidade**.
 
@@ -22,60 +25,21 @@ A proposta une **nutrição e estética natural**, promovendo o **autocuidado, o
 
 | Página | Descrição |
 |--------|------------|
-| `index.html` | Página inicial com **hero**, missão, visão, valores e newsletter |
-| `sobre.html` | História da ONG, equipe e **vídeo institucional** |
-| `projetos.html` | Lista de projetos sociais e **galeria responsiva com 20 imagens** |
-| `voluntariado.html` | Formulários de **cadastro de voluntário** , **inscrição em projetos**, **audio mp3** |
-| `doacoes.html` | Campanhas de arrecadação com **barras de progresso acessíveis** e gráfico de pizza |
-| `transparencia.html` | **Relatórios e gráficos** (pizza, linha e barras) com `<canvas>` e JS |
-| `contato.html` | Formulário institucional com **validação HTML5** e mapa ilustrativo |
-| `blog.html` | Estrutura de blog com **cards de artigos e imagens** |
+| `index.html` | Página inicial com hero, missão, visão e valores |
+| `sobre.html` | História da ONG, equipe e vídeo institucional |
+| `projetos.html` | Lista de projetos e galeria responsiva com 20 imagens |
+| `voluntariado.html` | Formulários de cadastro, inscrição em projetos e áudio mp3 |
+| `doacoes.html` | Campanhas com barras de progresso e gráfico de pizza |
+| `transparencia.html` | Relatórios e gráficos (pizza, linha e barras) com `<canvas>` |
+| `contato.html` | Formulário institucional com validação e mapa ilustrativo |
+| `blog.html` | Estrutura de blog com cards de artigos e imagens |
 
 ---
 
-## 🧠 Recursos Técnicos
-
-### 🌿 HTML5
-- Estrutura semântica e hierarquia de títulos (`<h1>`–`<h6>`)
-- Elementos de mídia (`<video>`, `<audio>`, `<picture>`)
-- Formulários com `fieldset`, `legend`, `pattern` e validação nativa
-
-### 🎨 CSS3
-- Layout **responsivo mobile-first**
-- Galeria e seções usando **Flexbox** e **Grid**
-- Paleta de cores em tons **verdes e terrosos**, transmitindo natureza e calma
-- Tipografia decorativa com fonte *Dancing Script*
-
-### ⚙️ JavaScript
-- Gráficos simples com `<canvas>` (pizza, linha e barras)
-- Scripts de validação e acessibilidade nos formulários
-
-### ♿ Acessibilidade
-- Conformidade com **WCAG 2.1 nível AA**
-- Navegação por teclado
-- Uso de `aria-label` e `aria-labelledby`
-- Contraste e fontes legíveis
-
-### 🔍 SEO e Desempenho
-- Estrutura semântica otimizada
-- `meta description` em todas as páginas
-- `loading="lazy"` em imagens para otimizar o carregamento
-
----
-
-## 📊 Validação
-
-✅ **HTML5 validado** via [W3C Validator](https://validator.w3.org/)  
-✅ **Acessibilidade e semântica revisadas**  
-✅ **Imagens otimizadas e responsivas**
-
----
-
-## 📁 Estrutura de Pastas
-
-/projeto_desen_front_end_web
+📁 Estrutura de Pastas
+projeto_desen_front_end_web/
 ├── index.html
-├── views/                 <-- parciais HTML para SPA (index)
+├── views/
 │   ├── index.html
 │   ├── sobre.html
 │   ├── projetos.html
@@ -84,35 +48,115 @@ A proposta une **nutrição e estética natural**, promovendo o **autocuidado, o
 │   ├── transparencia.html
 │   ├── contato.html
 │   └── blog.html
+│
+├── css/
+│   └── style.css
+│
 ├── js/
-│   ├── app.js            <-- roteador SPA + bootstrap
-│   ├── router.js         <-- hash router
-│   ├── templates.js      <-- sistema simples de templates
-│   ├── form-validacao.js          <-- validação + consistência + mensagens
-│   ├── storage.js        <-- salvar/recuperar rascunhos (localStorage)
-│   └── utils.js          <-- utilitários (CPF, CEP, máscara, etc.)
-└── css/style.css
+│   ├── app.js
+│   ├── router.js
+│   ├── templates.js
+│   ├── form-validacao.js
+│   ├── storage.js
+│   ├── utils.js
+│   └── theme.js
 │
 ├── imagens/
-│ ├── hero.jpg
-│ ├── galeria/...
-│ └── equipe/...
-│
-└── video/
-├── flor-da-pele.mp4
-│
+├── docs/
+├── video/
 └── audio/
-├── Golden.mp3
-├─ docs/ (relatórios W3C)
 
+## ⚙️ Recursos Técnicos
 
-## 👩‍💻 Desenvolvido por
+### 🧠 JavaScript Avançado
+- **SPA (Single Page Application)** com `router.js` e `app.js`  
+  → navegação dinâmica sem recarregar páginas.
+- **Formulários inteligentes**  
+  → validação, máscaras (CPF, CEP, telefone) e salvamento automático com `localStorage`.
+- **Gráficos interativos** (`<canvas>`) em pizza, linha e barras.
+- **Temas acessíveis**: claro, escuro e alto contraste (persistentes).
+- **Eventos e manipulação de DOM** com JS modular (ESM).
 
-**✨ Nathalia Machado**  
-Nutricionista | Estudante de ADS | Criadora da ONG fictícia *Flor da Pele*  
-💚 Apaixonada por tecnologia, arte e o poder transformador do autocuidado.  
+### 🎨 CSS3
+- Layouts com **Grid** e **Flexbox**.
+- Paleta em tons **verdes e terrosos**, transmitindo natureza e calma.
+- Tema dinâmico via variáveis CSS (`--bg`, `--text`, `--brand`).
+- Modo escuro e alto contraste respeitando `prefers-color-scheme`.
+
+### ♿ Acessibilidade (WCAG 2.1 AA)
+- Navegação completa por teclado.
+- Elementos com `aria-label` e `aria-labelledby`.
+- Contraste mínimo de **4.5:1**.
+- Foco visível e **skip-link**.
+- Modo **alto contraste** acessível via botão e persistente em `localStorage`.
+
+### 🔍 SEO e Desempenho
+- `meta description` em todas as páginas.
+- `loading="lazy"` e `decoding="async"` em imagens.
+- Código HTML validado via [W3C Validator](https://validator.w3.org/).
 
 ---
 
-### 🌐 Projeto hospedado em:
-[GitHub Pages – Flor da Pele](https://nathaliamachado9013-sys.github.io/projeto_desen_front_end_web/)
+## 🚀 Otimização para Produção
+
+O projeto possui scripts de build que geram a versão minificada e otimizada.
+
+### 🧩 Tecnologias utilizadas
+- `clean-css-cli` — minificação de CSS  
+- `terser` — minificação de JavaScript  
+- `html-minifier-terser` — minificação de HTML  
+- `imagemin-cli` — compressão de imagens
+
+🧾 Validação e Acessibilidade
+
+✅ HTML5 validado pelo W3C Validator
+
+✅ Acessibilidade revisada (WCAG 2.1 AA)
+✅ Responsividade testada em mobile, tablet e desktop
+✅ Testado com navegação por teclado e contraste alto
+
+
+### 💡 Scripts de build (package.json)
+```json
+{
+  "scripts": {
+    "min:css": "npx clean-css-cli -o dist/css/style.min.css css/style.css",
+    "min:js": "npx terser js/*.js -o dist/js/app.min.js -c -m",
+    "min:html": "npx html-minifier-terser --collapse-whitespace --remove-comments -o dist/index.html index.html",
+    "build": "mkdir -p dist && npm run min:css && npm run min:js && npm run min:html"
+  }
+}
+
+
+Versão Online
+
+🌐 https://nathaliamachado9013-sys.github.io/projeto_desen_front_end_web/
+
+
+
+🪞 Créditos
+
+✨ Nathalia Machado
+Nutricionista | Estudante de ADS | Criadora da ONG fictícia Flor da Pele
+💚 Apaixonada por tecnologia, arte e o poder transformador do autocuidado.
+
+
+🧩 Changelog
+[v1.0.0] — 2025-11-01
+
+Implementação completa do SPA com roteamento hash.
+
+Validação de formulários com máscaras e LocalStorage.
+
+Sistema de tema acessível (claro, escuro, alto contraste).
+
+Gráficos em canvas e responsividade.
+
+GitFlow e commits semânticos aplicados.
+
+Build de produção com minificação e compressão.
+
+
+🪪 Licença
+
+MIT © 2025 — Projeto educacional desenvolvido para fins acadêmicos.
